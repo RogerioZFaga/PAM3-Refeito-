@@ -24,11 +24,31 @@ namespace RpgApi.Controllers
             new Personagem() { Id = 7, Nome = "Radagast", PontosVida=100, Forca=25, Defesa=11, Inteligencia=35, Classe=ClasseEnum.Mago }
         };
     
+        [HttpGet("Get")]
         public IActionResult GetFirst()
         {
             Personagem p = personagens[0];
             return Ok(p);
 
+        }
+
+        [HttpGet("GetAll")]
+        public IActionResult Get()
+        {
+            return Ok(personagens);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetSingle(int id)
+        {
+            return Ok(personagens.FirstOrDefault(pe => pe.Id == id));
+        }
+
+        [HttpPost]
+        public IActionResult AddPersonagem(Personagem novoPersonagem)
+        {
+            personagens.Add(novoPersonagem);
+            return Ok(personagens);
         }
     }
 }
