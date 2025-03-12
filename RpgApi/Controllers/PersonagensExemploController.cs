@@ -44,7 +44,7 @@ namespace RpgApi.Controllers
             return Ok(personagens.FirstOrDefault(pe => pe.Id == id));
         }
 
-        [HttpPost]
+        [HttpPost()]
         public IActionResult AddPersonagem(Personagem novoPersonagem)
         {
             personagens.Add(novoPersonagem);
