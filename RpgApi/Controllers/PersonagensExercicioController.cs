@@ -95,6 +95,7 @@ namespace RpgApi.Controllers
 
             return Ok(personagensClasse);
         }
+        /*ROGÉRIO E MIGUEL*/
 
     }
 }
